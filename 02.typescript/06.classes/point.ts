@@ -18,4 +18,8 @@ export class Point {
     getDistance(another: Point) {
         // ...
     }
+    // tsc main.ts
+    // ignore errors ???
+    // node main.ts
 }
+//Or tsc *.ts --target ES5 && node main.js
