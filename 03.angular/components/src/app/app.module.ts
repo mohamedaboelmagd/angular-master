@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { CoursesComponent } from 'app/courses.component';
 import { CourseComponent } from './course/course.component';
 import { CoursesService } from 'app/courses.service';
-
+import { EmailService } from 'app/email.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +19,7 @@ import { CoursesService } from 'app/courses.service';
     FormsModule,
     HttpModule
   ],
-  providers: [CoursesService],
+  providers: [CoursesService, EmailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
