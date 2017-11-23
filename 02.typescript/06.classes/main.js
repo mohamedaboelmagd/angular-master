@@ -1,15 +1,23 @@
-var Point = (function () {
-    function Point(x, y) {
-        this.x = x;
-        this.y = y;
+class Point {
+    constructor(_x, _y) {
+        this._x = _x;
+        this._y = _y;
     }
-    Point.prototype.draw = function () {
-        console.log('X: ' + this.x + ' Y: ' + this.y);
-    };
-    Point.prototype.getDistance = function (another) {
+    draw() {
+        console.log('X: ' + this._x + ' Y: ' + this._y);
+    }
+    get x() {
+        return this._x;
+    }
+    set x(value) {
+        if (value < 0)
+            throw new Error('must be more than 0');
+        this._x = value;
+    }
+    getDistance(another) {
         // ...
-    };
-    return Point;
-}());
-var point = new Point(1, 2);
+    }
+}
+let point = new Point(1, 2);
+point.x = 5;
 point.draw();
