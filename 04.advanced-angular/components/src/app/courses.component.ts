@@ -12,11 +12,13 @@ import { Component } from '@angular/core';
                     <tr>
                         <td [attr.colspan]="colSpan">25</td>
                     </tr>
-                </table>`
+                </table>
+                
+                <button class="btn btn-primary">Save</button>`
 })
 export class CoursesComponent {
     title = 'List of courses';
-    imageURL = 'http://lorempixel.com/400/400/';
+    imageURL = 'http://lorempixel.com/100/100/';
     colSpan = 2;
 
     constructor() {
