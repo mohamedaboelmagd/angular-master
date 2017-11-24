@@ -1,26 +1,18 @@
 import { Component } from '@angular/core';
-import { CoursesService } from './courses.service';
 
 @Component({
     selector: 'courses',
-    // template: '<h2>{{ "Title: "+ title }}</h2>'
     template: `
-                <h2>{{ getTitle() }}</h2>
-                <ul>
-                    <li *ngFor="let course of courses">
-                        {{ course }}
-                    </li>
-                </ul>`
+                <h2>{{ title }}</h2>
+                <h2 [textContent]="title"></h2>
+                <img src="{{ imageURL }}"/>
+                <img [src]="imageURL"/>`
 })
 export class CoursesComponent {
     title = 'List of courses';
-    courses = ['course1', 'course2', 'course3'];
+    imageURL = 'http://lorempixel.com/400/400/';
 
-    constructor(service: CoursesService){ // needs add this class in provider at app.module
-        // let service = new CoursesService(); //don't need to add this class in provider at app.module
-        this.courses = service.getCourses();
-    }
-    getTitle() {
-        return this.title;
+    constructor() {
+
     }
 }
