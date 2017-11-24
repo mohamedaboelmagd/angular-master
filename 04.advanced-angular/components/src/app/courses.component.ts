@@ -14,7 +14,8 @@ import { Component } from '@angular/core';
                     </tr>
                 </table>
                 
-                <button class="btn btn-primary" [class.active]="isActive">Save</button>`
+                <button class="btn btn-primary" [class.active]="isActive">Save</button>
+                <button [style.backgroundColor]="isActive? 'blue':'red'">style</button>`
 })
 export class CoursesComponent {
     title = 'List of courses';
