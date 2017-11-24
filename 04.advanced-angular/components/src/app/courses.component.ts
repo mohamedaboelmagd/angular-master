@@ -15,13 +15,25 @@ import { Component } from '@angular/core';
                 </table>
                 
                 <button class="btn btn-primary" [class.active]="isActive">Save</button>
-                <button [style.backgroundColor]="isActive? 'blue':'red'">style</button>`
+                <button [style.backgroundColor]="isActive? 'blue':'red'">style</button>
+                
+                <div (click)="onDivClicked()">
+                    <button (click)="onSave($event)">Save</button>
+                </div>`
 })
 export class CoursesComponent {
     title = 'List of courses';
     imageURL = 'http://lorempixel.com/100/100/';
     colSpan = 2;
     isActive = true;
+
+    onDivClicked() {
+        console.log('Parent');
+    }
+    onSave($event) {
+        $event.stopPropagation();
+        console.log('Button clicks', $event);
+    }
 
     constructor() {
 
