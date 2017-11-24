@@ -14,12 +14,13 @@ import { Component } from '@angular/core';
                     </tr>
                 </table>
                 
-                <button class="btn btn-primary">Save</button>`
+                <button class="btn btn-primary" [class.active]="isActive">Save</button>`
 })
 export class CoursesComponent {
     title = 'List of courses';
     imageURL = 'http://lorempixel.com/100/100/';
     colSpan = 2;
+    isActive = true;
 
     constructor() {
 
