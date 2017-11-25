@@ -19,7 +19,10 @@ import { Component } from '@angular/core';
                 
                 <div (click)="onDivClicked()">
                     <button (click)="onSave($event)">Save</button>
-                </div>`
+                </div>
+                
+                <input (keyup)="onKeyUp($event)"/>
+                <input (keyup.enter)="onKeyUpV()"/>`
 })
 export class CoursesComponent {
     title = 'List of courses';
@@ -35,6 +38,12 @@ export class CoursesComponent {
         console.log('Button clicks', $event);
     }
 
+    onKeyUp($event) {
+        if ($event.keyCode === 13) console.log('Enter was pressed');
+    }
+    onKeyUpV() {
+        console.log('Enter pressed');
+    }
     constructor() {
 
     }
