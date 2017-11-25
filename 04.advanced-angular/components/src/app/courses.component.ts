@@ -24,13 +24,18 @@ import { Component } from '@angular/core';
                 <input (keyup)="onKeyUp($event)"/>
                 <input (keyup.enter)="onKeyUpV($event)"/>
                 
-                <input #email (keyup.enter)="onKeyUpV2(email.value)"/>`
+                <input #email (keyup.enter)="onKeyUpV2(email.value)"/>
+                
+                <input [value]="emailx" (keyup.enter)="emailx = $event.target.value; onKeyUpV3()"/>
+                <input [(ngModel)]="emailo" (keyup.enter)="onKeyUpV4()"/>`
 })
 export class CoursesComponent {
     title = 'List of courses';
     imageURL = 'http://lorempixel.com/100/100/';
     colSpan = 2;
     isActive = true;
+    emailx = 'me@ex.com';
+    emailo = 'mmm@mmm.mmm';
 
     onDivClicked() {
         console.log('Parent');
@@ -49,6 +54,12 @@ export class CoursesComponent {
     }
     onKeyUpV2(value) {
         console.log(value);
+    }
+    onKeyUpV3() {
+        console.log(this.emailx);
+    }
+    onKeyUpV4() {
+        console.log(this.emailo);
     }
     constructor() {
 
