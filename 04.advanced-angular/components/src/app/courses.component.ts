@@ -27,7 +27,13 @@ import { Component } from '@angular/core';
                 <input #email (keyup.enter)="onKeyUpV2(email.value)"/>
                 
                 <input [value]="emailx" (keyup.enter)="emailx = $event.target.value; onKeyUpV3()"/>
-                <input [(ngModel)]="emailo" (keyup.enter)="onKeyUpV4()"/>`
+                <input [(ngModel)]="emailo" (keyup.enter)="onKeyUpV4()"/>
+                
+                {{ course.title | uppercase | lowercase }} <br/>
+                {{ course.students | number }} <br/>
+                {{ course.rating | number: '2.2-2' }} <br/>
+                {{ course.price | currency: 'USD': true: '3.2-2' }} <br/>
+                {{ course.releaseDate | date: 'shortDate' }}`
 })
 export class CoursesComponent {
     title = 'List of courses';
@@ -36,6 +42,14 @@ export class CoursesComponent {
     isActive = true;
     emailx = 'me@ex.com';
     emailo = 'mmm@mmm.mmm';
+
+    course = {
+        title: 'The Complete',
+        rating: 4.9745,
+        students: 30123,
+        price: 190.95,
+        releaseDate: new Date(2016, 3, 1)
+    };
 
     onDivClicked() {
         console.log('Parent');
