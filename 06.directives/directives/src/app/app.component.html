@@ -64,3 +64,5 @@
 
 <span *ngIf="task.assignee">{{ task.assignee.name }}</span>
 <span>{{ task.assignee?.name }}</span>
+
+<input type="text" [appInputFormat]="'uppercase'"/>
