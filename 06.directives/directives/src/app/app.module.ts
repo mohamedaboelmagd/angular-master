@@ -1,3 +1,4 @@
+import { ZippyComponent } from './zippy/zippy.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -9,7 +10,8 @@ import { InputFormatDirective } from './input-format.directive';
 @NgModule({
   declarations: [
     AppComponent,
-    InputFormatDirective
+    InputFormatDirective,
+    ZippyComponent
   ],
   imports: [
     BrowserModule,
