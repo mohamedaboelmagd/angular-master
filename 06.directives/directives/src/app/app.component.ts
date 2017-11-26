@@ -12,6 +12,8 @@ export class AppComponent {
 
   coursesObjs;
 
+  isSelected = true;
+
   onAdd() {
     this.coursesObjs.push({ id: 4, name: 'course4' });
   }
@@ -32,5 +34,9 @@ export class AppComponent {
   }
   trackCourses(index, course) {
     return course ? course.id : undefined;
+  }
+
+  onClick() {
+    this.isSelected = !this.isSelected;
   }
 }
