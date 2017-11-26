@@ -22,3 +22,12 @@
   <div *ngSwitchCase="'list'">List View Content</div>
   <div *ngSwitchDefault>Others</div>
 </div>
+
+<ul>
+  <li *ngFor="let course of coursesObjs; index as i; even as isEven">
+    {{ i }} - {{ course.name }} <span *ngIf="isEven">(Even)</span>
+    <button (click)="onRemove(course)">remove</button>
+    <button (click)="onChange(course)">change name</button>
+  </li>
+</ul>
+<button (click)="onAdd()" class="btn btn-default">Add</button>
