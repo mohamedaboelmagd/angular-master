@@ -16,6 +16,14 @@ export class AppComponent {
 
   canSave = true;
 
+  task = {
+    title: 'Review',
+    assignee: null
+    /*{
+      name: 'John'
+    }*/
+  };
+
   onAdd() {
     this.coursesObjs.push({ id: 4, name: 'course4' });
   }

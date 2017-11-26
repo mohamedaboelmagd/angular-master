@@ -61,3 +61,6 @@
   }">
   Save
 </button>
+
+<span *ngIf="task.assignee">{{ task.assignee.name }}</span>
+<span>{{ task.assignee?.name }}</span>
