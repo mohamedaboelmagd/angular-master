@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   post = {
     title: 'Title',
-    isFavorite: false
+    isFavorite: true
   };
 
   onFavoriteChange(eventArgs: FavoriteChangedEventArgs) {
