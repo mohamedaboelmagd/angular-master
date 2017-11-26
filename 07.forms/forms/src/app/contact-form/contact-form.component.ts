@@ -16,4 +16,8 @@ export class ContactFormComponent implements OnInit {
     console.log(attr);
   }
 
+  submit(form) {
+    console.log(form);
+  }
+
 }
