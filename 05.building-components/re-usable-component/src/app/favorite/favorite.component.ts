@@ -9,10 +9,10 @@ export class FavoriteComponent implements OnInit {
 
   title = 'app works!';
   @Input('isFavorite') star;
-  @Output() change = new EventEmitter();
+  @Output('change') click = new EventEmitter();
   onClick() {
     this.star = !this.star;
-    this.change.emit({ newValue: this.star });
+    this.click.emit({ newValue: this.star });
   }
 
   constructor() { }
