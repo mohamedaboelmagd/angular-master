@@ -14,6 +14,8 @@ export class AppComponent {
 
   isSelected = true;
 
+  canSave = true;
+
   onAdd() {
     this.coursesObjs.push({ id: 4, name: 'course4' });
   }
