@@ -33,3 +33,11 @@
 <button (click)="onAdd()" class="btn btn-default">Add</button>
 
 <button (click)="loadCourses()">Load Courses</button>
+
+<div *ngIf="courses.length > 0"></div>
+<ng-template [ngIf]="courses.length > 0">
+  <div>List of courses</div>
+</ng-template>
+<ng-template [ngIf]="!(courses.length > 0)">
+  <div>No courses yet</div>
+</ng-template>
