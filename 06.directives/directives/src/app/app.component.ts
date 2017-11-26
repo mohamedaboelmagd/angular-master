@@ -10,11 +10,7 @@ export class AppComponent {
 
   viewMode = 'map';
 
-  coursesObjs = [
-    { id: 1, name: 'course1'},
-    { id: 2, name: 'course2'},
-    { id: 3, name: 'course3'},
-  ];
+  coursesObjs;
 
   onAdd() {
     this.coursesObjs.push({ id: 4, name: 'course4' });
@@ -25,5 +21,16 @@ export class AppComponent {
   }
   onChange(course) {
     course.name = 'UPDATED';
+  }
+
+  loadCourses() {
+    this.coursesObjs = [
+      { id: 1, name: 'course1'},
+      { id: 2, name: 'course2'},
+      { id: 3, name: 'course3'},
+    ];
+  }
+  trackCourses(index, course) {
+    return course ? course.id : undefined;
   }
 }

@@ -24,10 +24,12 @@
 </div>
 
 <ul>
-  <li *ngFor="let course of coursesObjs; index as i; even as isEven">
+  <li *ngFor="let course of coursesObjs; index as i; even as isEven; trackBy: trackCourses">
     {{ i }} - {{ course.name }} <span *ngIf="isEven">(Even)</span>
     <button (click)="onRemove(course)">remove</button>
     <button (click)="onChange(course)">change name</button>
   </li>
 </ul>
 <button (click)="onAdd()" class="btn btn-default">Add</button>
+
+<button (click)="loadCourses()">Load Courses</button>
