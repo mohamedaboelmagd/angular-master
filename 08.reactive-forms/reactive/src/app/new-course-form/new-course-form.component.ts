@@ -13,8 +13,8 @@ export class NewCourseFormComponent {
     this.form = fb.group({
       name: ['', Validators.required],
       contact: fb.group({
-        name: [],
-        email: []
+        email: [],
+        phone: []
       }),
       topics: fb.array([])
     });
