@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../services/post.service';
+import { error } from 'util';
 
 @Component({
   selector: 'app-posts',
@@ -16,6 +17,9 @@ export class PostsComponent implements OnInit {
     this.service.getPosts()
       .subscribe(response => {
         this.posts = response.json();
+      }, error => {
+        alert('Error');
+        console.log(error);
       });
   }
 
@@ -26,6 +30,8 @@ export class PostsComponent implements OnInit {
       .subscribe(response => {
         post['id'] = response.json().id;
         this.posts.splice(0, 0, post);
+      }, error => {
+        console.log(error);
       });
   }
 
@@ -33,6 +39,8 @@ export class PostsComponent implements OnInit {
     this.service.updatePost(post)
       .subscribe(response => {
         console.log(response.json());
+      }, error => {
+        console.log(error);
       });
   }
 
@@ -41,6 +49,8 @@ export class PostsComponent implements OnInit {
       .subscribe(response => {
         const index = this.posts.indexOf(post);
         this.posts.splice(index, 1);
+      }, error => {
+        console.log(error);
       });
   }
 
