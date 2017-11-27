@@ -8,10 +8,21 @@ import { Http } from '@angular/http';
 })
 export class PostsComponent implements OnInit {
   posts: any[];
-  constructor(http: Http) {
-    http.get('https://jsonplaceholder.typicode.com/posts').subscribe(response => {
+  private url = 'https://jsonplaceholder.typicode.com/posts';
+  constructor(private http: Http) {
+    http.get(this.url).subscribe(response => {
       this.posts = response.json();
     });
+  }
+
+  createPost(input: HTMLInputElement) {
+    const post = { title: input.value };
+    input.value = '';
+    this.http.post(this.url, JSON.stringify(post))
+      .subscribe(response => {
+        post['id'] = response.json().id;
+        this.posts.splice(0, 0, post);
+      });
   }
 
   ngOnInit() {
