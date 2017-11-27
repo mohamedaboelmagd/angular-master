@@ -11,7 +11,7 @@ export class UsernameValidator {
     static shouldBeUnique(control: AbstractControl): Promise<ValidationErrors|null> {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                if ( control.value === 'mosh' ) {
+                if ( (control.value as string) === 'mosh' ) {
                     resolve( { shouldBeUnique: true } );
                 }else {
                     resolve( null );
