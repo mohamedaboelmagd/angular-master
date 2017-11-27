@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../services/post.service';
-import { error } from 'util';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-posts',
@@ -9,6 +9,7 @@ import { error } from 'util';
 })
 export class PostsComponent implements OnInit {
   posts: any[];
+  form: FormGroup;
 
   constructor(private service: PostService) {
   }
@@ -18,7 +19,7 @@ export class PostsComponent implements OnInit {
       .subscribe(response => {
         this.posts = response.json();
       }, error => {
-        alert('Error');
+        alert('An unexpected error occured');
         console.log(error);
       });
   }
@@ -30,8 +31,13 @@ export class PostsComponent implements OnInit {
       .subscribe(response => {
         post['id'] = response.json().id;
         this.posts.splice(0, 0, post);
-      }, error => {
-        console.log(error);
+      }, (error: Response) => {
+        if ( error.status === 400 ){
+          this.form.setErrors(error.json());
+        }else {
+          alert('An unexpected error occured');
+          console.log(error);
+        }
       });
   }
 
@@ -40,17 +46,23 @@ export class PostsComponent implements OnInit {
       .subscribe(response => {
         console.log(response.json());
       }, error => {
+        alert('An unexpected error occured');
         console.log(error);
       });
   }
 
   deletePost(post) {
-    this.service.deletePost(post.id)
+    this.service.deletePost(325)
       .subscribe(response => {
         const index = this.posts.indexOf(post);
         this.posts.splice(index, 1);
-      }, error => {
-        console.log(error);
+      }, (error: Response) => {
+        if (error.status === 404) {
+          alert('This post is already deleted');
+        }else {
+          alert('An unexpected error occured');
+          console.log(error);
+        }
       });
   }
 
