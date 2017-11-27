@@ -1,3 +1,6 @@
+import { BadInput } from './../common/validator/bad-input';
+import { NotFoundError } from './../common/validator/not-found-error';
+import { AppError } from './../common/validator/app-error';
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../services/post.service';
 import { FormGroup } from '@angular/forms';
@@ -31,9 +34,9 @@ export class PostsComponent implements OnInit {
       .subscribe(response => {
         post['id'] = response.json().id;
         this.posts.splice(0, 0, post);
-      }, (error: Response) => {
-        if ( error.status === 400 ){
-          this.form.setErrors(error.json());
+      }, (error: AppError) => {
+        if ( error instanceof BadInput ) {
+          this.form.setErrors(error.originalError);
         }else {
           alert('An unexpected error occured');
           console.log(error);
@@ -56,8 +59,8 @@ export class PostsComponent implements OnInit {
       .subscribe(response => {
         const index = this.posts.indexOf(post);
         this.posts.splice(index, 1);
-      }, (error: Response) => {
-        if (error.status === 404) {
+      }, (error: AppError) => {
+        if (error instanceof NotFoundError) {
           alert('This post is already deleted');
         }else {
           alert('An unexpected error occured');
