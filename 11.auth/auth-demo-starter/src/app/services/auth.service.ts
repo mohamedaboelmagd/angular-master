@@ -6,15 +6,23 @@ export class AuthService {
   constructor(private http: Http) {
   }
 
-  login(credentials) { 
-   return this.http.post('/api/authenticate', 
-      JSON.stringify(credentials));
+  login(credentials) {
+   return this.http.post('/api/authenticate',
+      JSON.stringify(credentials))
+      .map(response => {
+        const result = response.json();
+        if (result && result.token) {
+          localStorage.setItem('token', result.token);
+          return true;
+        }
+        return false;
+      });
   }
 
-  logout() { 
+  logout() {
   }
 
-  isLoggedIn() { 
+  isLoggedIn() {
     return false;
   }
 }
