@@ -1,5 +1,3 @@
-import { GithubFollowersComponent } from './../../hello-world/src/app/github-followers/github-followers.component';
-import { HomeComponent } from './../../hello-world/src/app/home/home.component';
 import { GithubFollowersService } from './services/github-followers.service';
 import { AppErrorHandler } from './common/app-error-handler';
 import { PostService } from './services/post.service';
