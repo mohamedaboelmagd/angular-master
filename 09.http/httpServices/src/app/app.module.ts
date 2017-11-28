@@ -1,3 +1,4 @@
+import { GithubService } from './services/github.service';
 import { AppErrorHandler } from './common/validator/app-error-handler';
 import { PostService } from './services/post.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -7,11 +8,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { PostsComponent } from './posts/posts.component';
+import { GithubComponent } from './github/github.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostsComponent
+    PostsComponent,
+    GithubComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +22,8 @@ import { PostsComponent } from './posts/posts.component';
     HttpModule
   ],
   providers: [  PostService,
-                {provide: ErrorHandler, useClass: AppErrorHandler}],
+                { provide: ErrorHandler, useClass: AppErrorHandler },
+                GithubService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
