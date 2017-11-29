@@ -19,6 +19,12 @@ import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NoAccessComponent } from './no-access/no-access.component';
 
+export function getAuthHttp(http) {
+  return new AuthHttp(new AuthConfig({
+    tokenName: 'token'
+  }), http);
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +52,11 @@ import { NoAccessComponent } from './no-access/no-access.component';
     AuthService,
     AuthGuard,
     AdminAuthGuard,
-
+    {
+      provide: AuthHttp,
+      useFactory: getAuthHttp,
+      deps: [Http]
+    },
     // For creating a mock back-end. You don't need these in a real app.
     fakeBackendProvider,
     MockBackend,
