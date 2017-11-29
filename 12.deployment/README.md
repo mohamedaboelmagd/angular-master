@@ -35,5 +35,16 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 `ng build --prod --base-href="https://mohamedaboelmagd.github.io/angular-master/"`
 `sudo ngh --no-silent`
 `open this url --> https://mohamedaboelmagd.github.io/angular-master/`
-# one command
+One command
 `npm run deploy:gh`
+(https://mohamedaboelmagd.github.io/angular-master/)
+
+## firebase
+`sudo npm i -g firebase-tools`
+`firebase login`
+`firebase init`
+`ng build --prod`
+`firebase deploy`
+One command
+`npm run deploy:firebase`
+(https://angular-awesome.firebaseapp.com/)
