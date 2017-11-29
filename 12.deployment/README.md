@@ -48,3 +48,15 @@ One command
 One command
 `npm run deploy:firebase`
 (https://angular-awesome.firebaseapp.com/)
+
+## heroku
+`node --version`
+old node --v is 6.10.3
+`sudo n v8.9.1`
+now 8.9.1
+`npm install -g heroku-cli`
+`heroku --version`
+`heroku login`
+`heroku create`
+`heroku open`
+`npm i express --save`
