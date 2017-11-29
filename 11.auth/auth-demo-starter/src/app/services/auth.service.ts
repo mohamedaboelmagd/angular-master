@@ -1,3 +1,4 @@
+import { JwtHelper, tokenNotExpired } from 'angular2-jwt';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
@@ -20,10 +21,26 @@ export class AuthService {
   }
 
   logout() {
+    localStorage.removeItem('token');
   }
 
   isLoggedIn() {
-    return false;
+    return tokenNotExpired();
+
+    // const jwtHelper = new JwtHelper();
+    // const token = localStorage.getItem('token');
+
+    // if (!token) {
+    //   return false;
+    // }
+
+    // const expirationDate = jwtHelper.getTokenExpirationDate(token);
+    // const isExpired = jwtHelper.isTokenExpired(token);
+
+    // console.log('Expiration Date', expirationDate);
+    // console.log('Is Expired', isExpired);
+
+    // return !isExpired;
   }
 }
 
