@@ -29,3 +29,34 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## github pages
+`sudo npm i -g angular-cli-ghpages`
+`ng build --prod --base-href="https://mohamedaboelmagd.github.io/angular-master/"`
+`sudo ngh --no-silent`
+`open this url --> https://mohamedaboelmagd.github.io/angular-master/`
+One command
+`npm run deploy:gh`
+(https://mohamedaboelmagd.github.io/angular-master/)
+
+## firebase
+`sudo npm i -g firebase-tools`
+`firebase login`
+`firebase init`
+`ng build --prod`
+`firebase deploy`
+One command
+`npm run deploy:firebase`
+(https://angular-awesome.firebaseapp.com/)
+
+## heroku
+`node --version`
+old node --v is 6.10.3
+`sudo n v8.9.1`
+now 8.9.1
+`npm install -g heroku-cli`
+`heroku --version`
+`heroku login`
+`heroku create`
+`heroku open`
+`npm i express --save`
