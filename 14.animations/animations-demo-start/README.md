@@ -29,3 +29,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Animatable Properties
 https://www.w3.org/TR/css-transitions-1/#animatable-properties
+https://www.w3schools.com/jsref/dom_obj_style.asp
