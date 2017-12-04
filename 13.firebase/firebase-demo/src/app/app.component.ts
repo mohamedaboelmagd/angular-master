@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
+import { AngularFireList } from 'angularfire2/database/interfaces';
 
 @Component({
   selector: 'app-root',
@@ -7,13 +9,23 @@ import { AngularFireDatabase } from 'angularfire2/database';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  courses$;
+  courses$: Observable<any[]>;
   course$;
   author$;
 
-  constructor(db: AngularFireDatabase) {
+  constructor(private db: AngularFireDatabase) {
     this.courses$ = db.list('/courses').valueChanges();
     this.course$ = db.object('/courses/1').valueChanges();
     this.author$ = db.object('/authors/1').valueChanges();
+  }
+
+  add(course: HTMLInputElement) {
+    // this.db.list('/courses').push(course.value);
+    this.db.list('/courses').push({
+      name: course.value,
+      student: 1000,
+      isPremium: true
+    });
+    course.value = '';
   }
 }
