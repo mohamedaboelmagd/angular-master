@@ -1,5 +1,13 @@
+<button (click)="ngOnDestory()">Go offline</button>
+
 <ul>
   <li *ngFor="let course of courses">
+    {{ course }}
+  </li>
+</ul>
+
+<ul>
+  <li *ngFor="let course of courses$ | async">
     {{ course }}
   </li>
 </ul>
