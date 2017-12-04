@@ -4,7 +4,7 @@
   class="form-control"
   (keyup.enter)="addItem(itemInput)">
 
-<div *ngIf="items" class="list-group" >
+<div *ngIf="items" class="list-group" @fade>
   <button type="button"
       *ngFor="let item of items"
       (click)="removeItem(item)"
