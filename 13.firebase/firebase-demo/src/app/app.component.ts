@@ -40,4 +40,10 @@ export class AppComponent {
           name: course.value.name ? course.value.name + ' Updated' : course.value + ' Updated'
         });
   }
+
+  delete(course) {
+    this.db.object('/courses/' + course.$key)
+        .remove()
+        .then(x => console.log('Deleted'));
+  }
 }
