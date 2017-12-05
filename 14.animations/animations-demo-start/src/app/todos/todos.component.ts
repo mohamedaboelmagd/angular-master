@@ -1,7 +1,7 @@
 import { slide, fade, bounceOutLeftAnimation, fadeInAnimation } from './../animations';
 import { Component } from '@angular/core';
 import { trigger, transition, state, style, animate, animation,
-         keyframes, useAnimation, query, animateChild, group } from '@angular/animations';
+         keyframes, useAnimation, query, animateChild, group, stagger } from '@angular/animations';
 
 @Component({
   selector: 'todos',
@@ -15,7 +15,8 @@ import { trigger, transition, state, style, animate, animation,
             style({ transform: 'translateY(-20px)' }),
             animate(1000)
           ]),
-          query('@todoAnimation', animateChild() )
+          query('@todoAnimation',
+           stagger(200, animateChild())  )
         ])
       ])
     ]),
