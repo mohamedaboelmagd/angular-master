@@ -12,10 +12,15 @@ import { trigger, transition, state, style, animate, animation,
         paddingTop: 0,
         paddingBottom: 0,
         height: 0,
-        overflow: 'hidden'
+        opacity: 0
       })),
       transition('collapsed => expanded', [
-        animate('300ms ease-out')
+        animate('300ms ease-out', style({
+          paddingTop: '*',
+          paddingBottom: '*',
+          height: '*'
+        })),
+        animate('1s', style({ opacity: 1 }))
       ]),
       transition('expanded => collapsed', [
         animate('300ms ease-in')
