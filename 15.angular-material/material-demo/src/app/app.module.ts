@@ -15,7 +15,8 @@ import {
   MatChipsModule,
   MatProgressSpinnerModule,
   MatTooltipModule,
-  MatTabsModule
+  MatTabsModule,
+  MatDialogModule
 } from '@angular/material';
 
 import { NgModule } from '@angular/core';
@@ -26,13 +27,18 @@ import { AppComponent } from './app.component';
 import { Part1Component } from './part1/part1.component';
 import { Part2Component } from './part2/part2.component';
 import { Part3Component } from './part3/part3.component';
+import { EditCourseComponent } from './edit-course/edit-course.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     Part1Component,
     Part2Component,
-    Part3Component
+    Part3Component,
+    EditCourseComponent
+  ],
+  entryComponents: [
+    EditCourseComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +57,8 @@ import { Part3Component } from './part3/part3.component';
     MatChipsModule,
     MatProgressSpinnerModule,
     MatTooltipModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
