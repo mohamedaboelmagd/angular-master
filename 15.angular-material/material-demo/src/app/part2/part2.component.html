@@ -1,3 +1,12 @@
 <mat-progress-spinner mode="determinate" value="20"></mat-progress-spinner>
 <mat-progress-spinner mode="determinate" [value]="progress"></mat-progress-spinner>
 <mat-progress-spinner *ngIf="loading" mode="indeterminate"></mat-progress-spinner>
+
+<br/>
+<span matTooltip="Tooltip!" matTooltipPosition="right">I have a tooltip</span>
+
+<br/>
+<mat-tab-group>
+  <mat-tab label="Billing">The content of billing</mat-tab>
+  <mat-tab label="Shipping">The content of shipping</mat-tab>
+</mat-tab-group>

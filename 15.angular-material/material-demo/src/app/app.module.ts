@@ -13,7 +13,9 @@ import {
   MatIconModule,
   MatButtonModule,
   MatChipsModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatTooltipModule,
+  MatTabsModule
 } from '@angular/material';
 
 import { NgModule } from '@angular/core';
@@ -47,7 +49,9 @@ import { Part3Component } from './part3/part3.component';
     MatIconModule,
     MatButtonModule,
     MatChipsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTooltipModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
