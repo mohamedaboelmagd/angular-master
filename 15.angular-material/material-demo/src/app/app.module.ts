@@ -11,7 +11,8 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   MatIconModule,
-  MatButtonModule
+  MatButtonModule,
+  MatChipsModule
 } from '@angular/material';
 
 import { NgModule } from '@angular/core';
@@ -37,7 +38,8 @@ import { AppComponent } from './app.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
