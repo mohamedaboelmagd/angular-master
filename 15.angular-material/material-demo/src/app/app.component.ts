@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/timer';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -25,6 +26,21 @@ export class AppComponent {
     { name: 'Advanced' }
   ];
 
+  progress = 0;
+  timer;
+  loading = false;
+
+  constructor() {
+    this.loading = true;
+    this.timer = setInterval(() => {
+      this.progress++;
+      if (this.progress === 100) {
+        clearInterval(this.timer);
+      }
+    }, 200);
+    this.getCourses().subscribe(x => this.loading = false);
+  }
+
   onChange($event) {
     console.log($event);
   }
@@ -35,5 +51,9 @@ export class AppComponent {
       .forEach(c => c['selected'] = false);
 
     category['selected'] = !category['selected'];
+  }
+
+  getCourses() {
+    return Observable.timer(2000);
   }
 }

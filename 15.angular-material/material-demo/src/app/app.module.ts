@@ -12,7 +12,8 @@ import {
   MatNativeDateModule,
   MatIconModule,
   MatButtonModule,
-  MatChipsModule
+  MatChipsModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
 
 import { NgModule } from '@angular/core';
@@ -39,7 +40,8 @@ import { AppComponent } from './app.component';
     MatNativeDateModule,
     MatIconModule,
     MatButtonModule,
-    MatChipsModule
+    MatChipsModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
