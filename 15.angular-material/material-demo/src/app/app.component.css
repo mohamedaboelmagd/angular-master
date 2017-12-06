@@ -1,6 +1,6 @@
 .mat-select {
     max-width: 200px;
 }
-mat-icon {
+mat-icon.add-alert {
     color: purple;
 }
