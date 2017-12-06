@@ -20,6 +20,7 @@
 </mat-select>
 
 <br/><br/>
+<!-- mat-form-field or mat-input-container -->
 <mat-form-field>
     <input type="text" 
         ngModel 
@@ -37,3 +38,8 @@
         <!-- handling more errors by ngIf *ngIf="username.invalid && username.errors.required" -->
     </mat-error>
 </mat-form-field>
+
+<br/><br/>
+<mat-input-container>
+    <textarea matInput matTextareaAutosize rows="2"></textarea>
+</mat-input-container>
