@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatCheckboxModule } from '@angular/material';
+import { MatCheckboxModule, MatRadioModule } from '@angular/material';
 
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -20,7 +20,9 @@ import { AppComponent } from './app.component';
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    MatCheckboxModule
+
+    MatCheckboxModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
