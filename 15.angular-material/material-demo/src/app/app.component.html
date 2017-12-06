@@ -18,3 +18,22 @@
       {{ color.name }}
     </mat-option>
 </mat-select>
+
+<br/><br/>
+<mat-form-field>
+    <input type="text" 
+        ngModel 
+        matInput
+        #username="ngModel"
+        name="username"
+        placeholder="Username"
+        required
+    />
+    <mat-hint>Choose your username</mat-hint>
+    <span matSuffix>@domain.com</span>
+    <span matPrefix>admin.</span>
+    <mat-error>
+        Username is required 
+        <!-- handling more errors by ngIf *ngIf="username.invalid && username.errors.required" -->
+    </mat-error>
+</mat-form-field>
