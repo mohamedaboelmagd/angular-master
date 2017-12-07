@@ -1,5 +1,7 @@
+import { AppState } from './../store';
 import { Component } from '@angular/core';
 import { TodoService } from '../todo.service';
+import { NgRedux, select } from 'ng2-redux';
 
 @Component({
   selector: 'app-todo-dashboard',
@@ -7,14 +9,16 @@ import { TodoService } from '../todo.service';
   styleUrls: ['./todo-dashboard.component.css']
 })
 export class TodoDashboardComponent {
-  todos: number; 
-  lastUpdate; 
-  
+  todos: number;
+  @select('numberOfItems') todoss;
+  lastUpdate;
+  @select('timeOfUpdated') lastUpdates;
+
   // Read the comment in TodoService
-  constructor(private service: TodoService) { 
+  constructor(private service: TodoService, private ngRedux: NgRedux<AppState>) {
     this.todos = service.getTodos().length;
-    
-    service.todoAdded.subscribe(() => { 
+
+    service.todoAdded.subscribe(() => {
       this.todos++;
       this.lastUpdate = new Date();
     });
@@ -29,7 +33,7 @@ export class TodoDashboardComponent {
     });
 
     service.todosCleared.subscribe(() => {
-      this.todos = 0; 
+      this.todos = 0;
       this.lastUpdate = new Date();
     });
   }

@@ -1,3 +1,5 @@
+import { AppState, rootReducer, INITIAL_STATE } from './store';
+import { NgRedux, NgReduxModule } from 'ng2-redux';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -17,10 +19,14 @@ import { TodoService } from './todo.service';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    NgReduxModule
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+  constructor (ngRedux: NgRedux<AppState>) {
+    ngRedux.configureStore(rootReducer, INITIAL_STATE);
+  }
 }

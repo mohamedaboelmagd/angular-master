@@ -1,5 +1,8 @@
+import { NgRedux } from 'ng2-redux';
 import { Component } from '@angular/core';
 import { TodoService } from '../todo.service';
+import { AppState } from '../store';
+import { ADDED_ITEM } from '../actions';
 
 @Component({
   selector: 'app-todo-list',
@@ -8,15 +11,16 @@ import { TodoService } from '../todo.service';
 })
 export class TodoListComponent {
   // Read the comment in TodoService
-  constructor(private service: TodoService) { 
+  constructor(private service: TodoService, private ngRedux: NgRedux<AppState>) {
   }
 
   addTodo(input) {
-    if (!input.value) return; 
+    if (!input.value) return;
 
-    this.service.addTodo(input.value);
+    // this.service.addTodo(input.value);
 
     input.value = '';
+    this.ngRedux.dispatch({ type: ADDED_ITEM });
   }
 
   toggleTodo(todo) {
