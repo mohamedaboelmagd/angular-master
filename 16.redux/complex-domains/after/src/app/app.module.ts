@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { NgRedux, NgReduxModule, DevToolsExtension } from 'ng2-redux';
 
 import { AppComponent } from './app.component';
-import { IAppState, rootReducer, INITIAL_STATE } from './store';
+import { IAppState, INITIAL_STATE, rootReducer } from './store';
 
 import { TodosModule } from './tasking/todos.module';
 import { MessagingModule } from './messaging/messaging.module';
@@ -25,7 +25,7 @@ import { MessagingModule } from './messaging/messaging.module';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(ngRedux: NgRedux<IAppState>){
+  constructor(ngRedux: NgRedux<any>){
     ngRedux.configureStore(rootReducer, INITIAL_STATE);
   }
  }

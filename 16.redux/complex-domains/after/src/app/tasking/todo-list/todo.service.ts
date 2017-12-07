@@ -8,7 +8,7 @@ export class TodoService {
 
   constructor(private http: Http) {}
 
-  getTodos() { 
+  getTodos() {
     return this.http.get(this.url);
   }
 

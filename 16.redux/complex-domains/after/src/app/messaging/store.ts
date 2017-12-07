@@ -1,13 +1,13 @@
-import { tassign } from 'tassign'; 
-import { INCREMENT, DECREMENT } from './actions'; 
+import { tassign } from 'tassign';
+import { INCREMENT, DECREMENT } from './actions';
 
 export interface IMessagingState {
   newMessages: number;
 }
 
-export const MESSAGING_INITIAL_STATE: IMessagingState = { 
+export const MESSAGING_INITIAL_STATE: IMessagingState = {
   newMessages: 0
-}
+};
 
 function increment(state, action) {
   return tassign(state, { newMessages: state.newMessages + 1 });
@@ -23,5 +23,5 @@ export function messagingReducer(state: IMessagingState = MESSAGING_INITIAL_STAT
     case DECREMENT: return decrement(state, action);
   }
 
-  return state; 
+  return state;
 }

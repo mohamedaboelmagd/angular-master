@@ -1,18 +1,18 @@
-import { tassign } from 'tassign'; 
-import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO, CLEAR_TODOS } from './actions'; 
+import { tassign } from 'tassign';
+import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO, CLEAR_TODOS } from './actions';
 
 export interface ITaskingState {
   todos: any[];
-  lastUpdate: Date; 
+  lastUpdate: Date;
 }
 
-export const TASKING_INITIAL_STATE: ITaskingState = { 
+export const TASKING_INITIAL_STATE: ITaskingState = {
   todos: [],
   lastUpdate: null,
-}
+};
 
 function addTodo(state, action) {
-  var newTodo = { id: state.todos.length + 1, title: action.title };
+  const newTodo = { id: state.todos.length + 1, title: action.title };
 
   return tassign(state, {
     todos: state.todos.concat(newTodo),
@@ -21,10 +21,10 @@ function addTodo(state, action) {
 }
 
 function toggleTodo(state, action) {
-  var todo = state.todos.find(t => t.id === action.id);
+  const todo = state.todos.find(t => t.id === action.id);
 
-  // Now, we need to find the position of this item in the array. 
-  var index = state.todos.indexOf(todo);
+  // Now, we need to find the position of this item in the array.
+  const index = state.todos.indexOf(todo);
 
   return tassign(state, {
     todos: [
@@ -58,5 +58,5 @@ export function taskingReducer(state: ITaskingState = TASKING_INITIAL_STATE, act
     case CLEAR_TODOS: return clearTodos(state, action);
   }
 
-  return state; 
+  return state;
 }
