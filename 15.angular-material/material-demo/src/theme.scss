@@ -35,3 +35,10 @@ $app-warn: mat-palette($mat-red);
 $app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
 
 @include angular-material-theme($app-theme);
+
+// Typography
+$app-typography: mat-typography-config(
+    $font-family:   '"Open San", "Helvetica Neue", sans-serif',
+    $headline:      mat-typography-level(34px, 32px, 700)
+);
+@include angular-material-typography($app-typography);
