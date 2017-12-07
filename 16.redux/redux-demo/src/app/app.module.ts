@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgRedux, NgReduxModule } from 'ng2-redux';
 import { AppComponent } from './app.component';
-import { IAppState, rootReducer } from 'app/store';
+import { IAppState, rootReducer, INITIAL_STATE } from 'app/store';
 
 @NgModule({
   declarations: [
@@ -21,6 +21,6 @@ import { IAppState, rootReducer } from 'app/store';
 })
 export class AppModule {
   constructor(ngRedux: NgRedux<IAppState>) {
-    ngRedux.configureStore(rootReducer, {});
+    ngRedux.configureStore(rootReducer, INITIAL_STATE);
   }
 }
