@@ -1,3 +1,4 @@
+import { tassign } from 'tassign';
 import { IAppState } from './store';
 import { INCREMENT } from './actions';
 export interface IAppState {
@@ -9,7 +10,10 @@ export const INITIAL_STATE: IAppState = {
 };
 export function rootReducer(state: IAppState, action): IAppState {
     switch (action.type) {
-        case INCREMENT: return { counter: ++state.counter };
+        case INCREMENT:
+            // return Object.assign( {}, state, { counter: state.counter + 1, isOnline: true } );
+            return tassign(state, { counter: state.counter + 1 });
+            // return { counter: state.counter + 1 };
     }
     return state;
 }
