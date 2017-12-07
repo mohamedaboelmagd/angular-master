@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgRedux, NgReduxModule } from 'ng2-redux';
 import { AppComponent } from './app.component';
-import { IAppState, rootReducer, INITIAL_STATE } from 'app/store';
+import { IAppState, rootReducer, INITIAL_STATE } from './store';
 
 @NgModule({
   declarations: [
