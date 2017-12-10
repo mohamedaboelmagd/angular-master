@@ -27,4 +27,13 @@ describe('VoterComponent', () => {
 
     expect(el.innerText).toContain(21);
   });
+
+  it('should render highlighted', () => {
+    component.myVote = 1;
+    fixture.detectChanges();
+
+    const dl = fixture.debugElement.query(By.css('.glyphicon-menu-up'));
+
+    expect(dl.classes['highlighted']).toBeTruthy();
+  });
 });
