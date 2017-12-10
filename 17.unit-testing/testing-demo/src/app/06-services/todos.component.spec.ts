@@ -55,4 +55,22 @@ describe('TodosComponent', () => {
 
     expect(component.message).toBe(error);
   });
+
+  it('should delete item if accept', () => {
+    spyOn(window, 'confirm').and.returnValue(true);
+    const spy = spyOn(service, 'delete').and.returnValue(Observable.empty());
+
+    component.delete(1);
+
+    expect(spy).toHaveBeenCalledWith(1);
+  });
+
+  it('should NOT delete item if cancels', () => {
+    spyOn(window, 'confirm').and.returnValue(false);
+    const spy = spyOn(service, 'delete').and.returnValue(Observable.empty());
+
+    component.delete(1);
+
+    expect(spy).not.toHaveBeenCalled();
+  });
 });
