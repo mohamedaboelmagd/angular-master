@@ -1,3 +1,4 @@
+import { By } from '@angular/platform-browser';
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { VoterComponent } from './voter.component';
 
@@ -17,6 +18,13 @@ describe('VoterComponent', () => {
     // fixture.debugElement
   });
 
-  it('', () => {
+  it('should render total votes', () => {
+    component.othersVote = 20;
+    component.myVote = 1;
+    fixture.detectChanges();
+
+    const el: HTMLInputElement = fixture.debugElement.query(By.css('.vote-count')).nativeElement;
+
+    expect(el.innerText).toContain(21);
   });
 });
